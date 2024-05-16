@@ -12,5 +12,6 @@ func (router RouterGroup) RoleRouter() {
 	r.POST("", app.RoleCreateView)
 	r.PUT("", app.RoleUpdateView)
 	r.DELETE("", app.RoleRemoveView)
+	r.GET("/id", app.RoleListView)
 
 }

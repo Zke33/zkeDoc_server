@@ -51,7 +51,7 @@ func (DocApi) DocSearchView(c *gin.Context) {
 		ids = append(ids, u)
 	}
 	// 用户只能搜自己权限才能看的文档
-	query.Must(elastic.NewTermsQuery("doc_id", ids...))
+	//query.Must(elastic.NewTermsQuery("doc_id", ids...))
 	result, err := global.ESClient.Search(models.FullTextModel{}.Index()).
 		Query(query).
 		Highlight(elastic.NewHighlight().Field("body").Field("title")).
